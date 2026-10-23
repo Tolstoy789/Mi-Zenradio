@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Marca en azul "Océano profundo" (tema por defecto). Se usan fuera de
+         Compose: icono, pantalla de arranque, widget y fondo de la ventana. -->
+    <color name="zen_night">#071829</color>
+    <color name="zen_brand_bg_start">#0F2C48</color>
+    <color name="zen_brand_bg_end">#040E1A</color>
+    <color name="zen_brand_moon">#DDF3FF</color>
+    <color name="zen_brand_bar1">#5CE1E6</color>
+    <color name="zen_brand_bar2">#2F80ED</color>
+    <color name="zen_brand_bar3">#7AA7FF</color>
+    <color name="zen_accent">#5CE1E6</color>
+    <color name="zen_accent_soft">#A5F3FC</color>
+    <color name="zen_accent_deep">#2F80ED</color>
+    <color name="zen_on_accent">#04121F</color>
+    <color name="zen_text">#EAF6FF</color>
+    <color name="zen_text_secondary">#93AFC8</color>
+    <color name="zen_widget_bg_start">#EB0B2238</color>
+    <color name="zen_widget_bg_end">#EB040E1A</color>
+    <color name="zen_widget_stroke">#555CE1E6</color>
+</resources>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Animación de arranque (Android 12+): la luna sube y aparece, luego crecen las barras -->
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="108dp"
+            android:height="108dp"
+            android:viewportWidth="108"
+            android:viewportHeight="108">
+            <group
+                android:pivotX="54"
+                android:pivotY="56"
+                android:scaleX="0.82"
+                android:scaleY="0.82">
+                <group
+                    android:name="moon"
+                    android:translateY="28">
+                    <path
+                        android:name="moon_path"
+                        android:fillAlpha="0"
+                        android:fillColor="@color/zen_brand_moon"
+                        android:pathData="M50.19,26.08A20,20 0,1 0,71.27 51.37A17,17 0,0 1,50.19 26.08Z" />
+                </group>
+                <group
+                    android:name="bar1"
+                    android:pivotY="86"
+                    android:scaleY="0">
+                    <path
+                        android:fillColor="@color/zen_brand_bar1"
+                        android:pathData="M41,72a4,4 0,0 1,4 4v6a4,4 0,0 1,-8 0v-6a4,4 0,0 1,4 -4z" />
+                </group>
+                <group
+                    android:name="bar2"
+                    android:pivotY="86"
+                    android:scaleY="0">
+                    <path
+                        android:fillColor="@color/zen_brand_bar2"
+                        android:pathData="M54,66a4,4 0,0 1,4 4v12a4,4 0,0 1,-8 0v-12a4,4 0,0 1,4 -4z" />
+                </group>
+                <group
+                    android:name="bar3"
+                    android:pivotY="86"
+                    android:scaleY="0">
+                    <path
+                        android:fillColor="@color/zen_brand_bar3"
+                        android:pathData="M67,74a4,4 0,0 1,4 4v4a4,4 0,0 1,-8 0v-4a4,4 0,0 1,4 -4z" />
+                </group>
+            </group>
+        </vector>
+    </aapt:attr>
+
+    <target android:name="moon">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="650"
+                android:interpolator="@android:interpolator/fast_out_slow_in"
+                android:propertyName="translateY"
+                android:valueFrom="28"
+                android:valueTo="0"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+    <target android:name="moon_path">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="450"
+                android:propertyName="fillAlpha"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+    <target android:name="bar1">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="420"
+                android:interpolator="@android:interpolator/overshoot"
+                android:propertyName="scaleY"
+                android:startOffset="380"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+    <target android:name="bar2">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="420"
+                android:interpolator="@android:interpolator/overshoot"
+                android:propertyName="scaleY"
+                android:startOffset="480"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+    <target android:name="bar3">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="420"
+                android:interpolator="@android:interpolator/overshoot"
+                android:propertyName="scaleY"
+                android:startOffset="580"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+</animated-vector>

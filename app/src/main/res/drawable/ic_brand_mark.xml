@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Logo "Luna zen" recortado a su contenido (para el widget) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="34dp"
+    android:viewportWidth="48"
+    android:viewportHeight="68">
+    <group
+        android:translateX="-28"
+        android:translateY="-22">
+        <path
+            android:fillColor="@color/zen_brand_moon"
+            android:pathData="M50.19,26.08A20,20 0,1 0,71.27 51.37A17,17 0,0 1,50.19 26.08Z" />
+        <path
+            android:fillColor="@color/zen_brand_bar1"
+            android:pathData="M41,72a4,4 0,0 1,4 4v6a4,4 0,0 1,-8 0v-6a4,4 0,0 1,4 -4z" />
+        <path
+            android:fillColor="@color/zen_brand_bar2"
+            android:pathData="M54,66a4,4 0,0 1,4 4v12a4,4 0,0 1,-8 0v-12a4,4 0,0 1,4 -4z" />
+        <path
+            android:fillColor="@color/zen_brand_bar3"
+            android:pathData="M67,74a4,4 0,0 1,4 4v4a4,4 0,0 1,-8 0v-4a4,4 0,0 1,4 -4z" />
+    </group>
+</vector>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ZenRadio" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/zen_night</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Pantalla de arranque con el icono "Luna zen" animado (androidx.core:core-splashscreen) -->
+    <style name="Theme.ZenRadio.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/zen_night</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_icon_animated</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="postSplashScreenTheme">@style/Theme.ZenRadio</item>
+    </style>
+</resources>
