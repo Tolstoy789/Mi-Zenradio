@@ -21,7 +21,7 @@ https://github.com/Tolstoy789/Mi-Zenradio/releases/latest/download/ZenRadio.apk
 
 ## Funciones
 
-- **11 emisoras relajantes incluidas**, todas por HTTPS, con reproducción en segundo plano y notificación de medios:
+- **11 emisoras relajantes incluidas**, todas por HTTPS y comprobadas (ver [Comprobar las emisoras](#comprobar-las-emisoras)), con reproducción en segundo plano y notificación de medios:
   - Lo-Fi, Clásica (NPO Radio 4) y Ambiental (Frisky Chill).
   - De SomaFM: Chill (Groove Salad), Beats suaves (Fluid), Voces suaves (Lush), Atmósfera (Synphaera), Espacio profundo (Deep Space One) y Meditación (Drone Zone).
   - Jazz (Jazz24) y Dormir (Ambient Sleeping Pill).
@@ -70,6 +70,15 @@ app/src/main/
             ├── Glass.kt                Superficie de cristal y resplandor de color
             └── …                       Tarjetas, mini reproductor, ecualizador y diálogos
 ```
+
+## Comprobar las emisoras
+
+El flujo *Emisoras* (`.github/workflows/streams.yml`) comprueba que cada emisora suena de verdad, en dos pasos:
+
+1. **Sonda de red** (`tools/streams/check_streams.py`): conecta a cada emisora en 3 rondas separadas por un minuto, igual que el móvil (solo HTTPS, sin seguir redirecciones a http), y analiza con ffprobe el audio que llega.
+2. **Reproducción en Android** (`app/src/androidTest/.../StationPlaybackTest.kt`): pone cada emisora en un emulador con el mismo reproductor que la app y comprueba que empieza a sonar en menos de 20 s y que sigue sonando sin cortes.
+
+Se lanza solo cuando cambia el catálogo y a mano en *Actions → Emisoras → Run workflow*. El resumen de la ejecución trae una tabla por paso con el resultado de cada emisora. En `tools/streams/candidates.txt` hay emisoras de reserva: se prueban a la vez y sirven para reponer una que deje de funcionar.
 
 ## Probar Android Auto
 

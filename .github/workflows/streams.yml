@@ -5,10 +5,12 @@ name: Emisoras
 #     con internet completo y analiza el audio que llega.
 #  2. Reproducción en Android: las pone en un emulador con el mismo
 #     reproductor que la app y comprueba que suenan sin cortes.
-# Se lanza sola al cambiar el catálogo y a mano desde Actions → Emisoras.
+# Se lanza sola al cambiar el catálogo (en main y en los pull requests) y a
+# mano desde Actions → Emisoras → Run workflow.
 on:
   workflow_dispatch:
   push:
+    branches: [main]
     paths:
       - app/src/main/java/com/zenradio/app/data/Station.kt
       - app/src/androidTest/**

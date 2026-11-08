@@ -19,6 +19,11 @@ data class Station(
  * selección que va de los beats tranquilos a los paisajes sonoros para dormir.
  * Todas emiten por HTTPS. El usuario puede añadir, ordenar y marcar favoritas;
  * las que se añadan aquí en una versión nueva le aparecen al final de su lista.
+ *
+ * Cada cambio aquí lo comprueba el flujo "Emisoras" de GitHub Actions
+ * (tools/streams): conecta a cada emisora en varias rondas y la reproduce en un
+ * emulador Android. SomaFM solo sirve la dirección completa del canal
+ * (ice2.somafm.com/<canal>-128-mp3); la corta (ice.somafm.com/<canal>) da 404.
  */
 object StationCatalog {
     val defaults: List<Station> = listOf(
@@ -44,19 +49,19 @@ object StationCatalog {
             id = "chill",
             name = "Chill",
             genre = "Groove Salad · Chillout y grooves",
-            streamUrl = "https://ice.somafm.com/groovesalad",
+            streamUrl = "https://ice2.somafm.com/groovesalad-128-mp3",
         ),
         Station(
             id = "beats",
             name = "Beats suaves",
             genre = "Fluid · Hip hop instrumental",
-            streamUrl = "https://ice.somafm.com/fluid",
+            streamUrl = "https://ice2.somafm.com/fluid-128-mp3",
         ),
         Station(
             id = "voces",
             name = "Voces suaves",
             genre = "Lush · Electrónica con voz",
-            streamUrl = "https://ice.somafm.com/lush",
+            streamUrl = "https://ice2.somafm.com/lush-128-mp3",
         ),
         Station(
             id = "jazz",
@@ -68,19 +73,19 @@ object StationCatalog {
             id = "atmosfera",
             name = "Atmósfera",
             genre = "Synphaera · Ambient electrónico",
-            streamUrl = "https://ice.somafm.com/synphaera",
+            streamUrl = "https://ice2.somafm.com/synphaera-128-mp3",
         ),
         Station(
             id = "espacio",
             name = "Espacio profundo",
             genre = "Deep Space One · Ambient espacial",
-            streamUrl = "https://ice.somafm.com/deepspaceone",
+            streamUrl = "https://ice2.somafm.com/deepspaceone-128-mp3",
         ),
         Station(
             id = "meditacion",
             name = "Meditación",
             genre = "Drone Zone · Texturas sin ritmo",
-            streamUrl = "https://ice.somafm.com/dronezone",
+            streamUrl = "https://ice2.somafm.com/dronezone-128-mp3",
         ),
         Station(
             id = "dormir",
