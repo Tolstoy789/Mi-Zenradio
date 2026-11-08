@@ -1,0 +1,119 @@
+name: Emisoras
+
+# Comprueba que las emisoras funcionan de verdad:
+#  1. Sonda de red: conecta a cada emisora en varias rondas desde un servidor
+#     con internet completo y analiza el audio que llega.
+#  2. Reproducción en Android: las pone en un emulador con el mismo
+#     reproductor que la app y comprueba que suenan sin cortes.
+# Se lanza sola al cambiar el catálogo (en main y en los pull requests) y a
+# mano desde Actions → Emisoras → Run workflow.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - app/src/main/java/com/zenradio/app/data/Station.kt
+      - app/src/androidTest/**
+      - tools/streams/**
+      - .github/workflows/streams.yml
+  pull_request:
+    paths:
+      - app/src/main/java/com/zenradio/app/data/Station.kt
+      - app/src/androidTest/**
+      - tools/streams/**
+      - .github/workflows/streams.yml
+
+# Una sola comprobación a la vez por rama: un cambio nuevo cancela la anterior.
+concurrency:
+  group: emisoras-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sonda:
+    name: Sonda de red
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Probar las emisoras (3 rondas)
+        run: |
+          python3 tools/streams/check_streams.py --rounds 3 --gap 60 \
+            --json stream-report.json \
+            --android-candidates candidatas-android.txt
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sonda
+          path: |
+            stream-report.json
+            candidatas-android.txt
+
+  android:
+    name: Reproducción en Android
+    needs: sonda
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: sonda
+          path: sonda
+
+      - name: Añadir las candidatas que pasaron la sonda
+        run: |
+          mkdir -p app/src/androidTest/assets
+          if [ -f sonda/candidatas-android.txt ]; then
+            cp sonda/candidatas-android.txt app/src/androidTest/assets/candidates.txt
+          fi
+          cat app/src/androidTest/assets/candidates.txt 2>/dev/null || true
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Compilar la app y la prueba
+        run: ./gradlew assembleDebug assembleDebugAndroidTest --stacktrace
+
+      - name: Activar KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Reproducir cada emisora en el emulador
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-boot-anim -camera-back none
+          script: |
+            adb logcat -G 16M || true
+            adb logcat -c || true
+            ./gradlew connectedDebugAndroidTest || echo "Alguna emisora no suena"
+            adb logcat -d -s ZenStreamTest:I > android-stream.log
+
+      - name: Resultado
+        if: always()
+        run: python3 tools/streams/android_report.py android-stream.log
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: android
+          path: |
+            android-stream.log
+            app/build/reports/androidTests/connected/
+            app/build/outputs/androidTest-results/connected/

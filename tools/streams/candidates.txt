@@ -1,0 +1,39 @@
+# Emisoras de reserva para reponer las que fallen, una por línea: id|Nombre|URL
+# La sonda las prueba junto al catálogo; las que funcionan en todas las rondas
+# pasan también a la prueba de reproducción en Android.
+# Todas sonaron en la prueba del 8 de noviembre de 2026, salvo las marcadas.
+
+# SomaFM: otros canales tranquilos (sin probar todavía con la dirección completa)
+gsclassic|Groove Salad Classic (SomaFM)|https://ice2.somafm.com/gsclassic-128-mp3
+n5md|n5MD Radio (SomaFM)|https://ice2.somafm.com/n5md-128-mp3
+spacestation|Space Station Soma (SomaFM)|https://ice2.somafm.com/spacestation-128-mp3
+
+# Lo-fi y chill
+lofi_lautfm|Lofi (laut.fm)|https://stream.laut.fm/lofi
+chillhop_fluxfm|Chillhop (FluxFM)|https://streams.fluxfm.de/Chillhop/mp3-128/streams.fluxfm.de/
+chillsynth|Chillsynth (Nightride FM)|https://stream.nightride.fm/chillsynth.mp3
+
+# Ambient y para dormir
+asp_alta|Ambient Sleeping Pill (alta calidad)|https://radio.stereoscenic.com/asp-h
+rp_serenity|Radio Paradise Serenity|https://stream.radioparadise.com/serenity
+radioart_nature|Radio Art Nature|https://live.radioart.com/fNature.mp3
+radioart_sleep|Radio Art Sleep|https://live.radioart.com/fSleep.mp3
+
+# Mezclas tranquilas
+rp_mellow_128|Radio Paradise Mellow (AAC)|https://stream.radioparadise.com/mellow-128
+rp_mellow_192|Radio Paradise Mellow (MP3)|https://stream.radioparadise.com/mellow-192
+
+# Clásica
+swiss_classic|Radio Swiss Classic|https://stream.srg-ssr.ch/srgssr/rsc_de/mp3/128
+br_klassik|BR-Klassik|https://dispatcher.rndfnk.com/br/brklassik/live/mp3/mid
+venice_classic|Venice Classic Radio|https://uk2.streamingpulse.com/ssl/vcr1
+klassik_radio|Klassik Radio|https://stream.klassikradio.de/live/mp3-192/stream.klassikradio.de/
+
+# Jazz
+swiss_jazz|Radio Swiss Jazz|https://stream.srg-ssr.ch/srgssr/rsj/mp3/128
+tsf_jazz|TSF Jazz|https://tsfjazz.ice.infomaniak.ch/tsfjazz-high.mp3
+
+# Descartadas el 8 de noviembre de 2026 (no las vuelvas a añadir sin cambiar la URL):
+#  - stream.srg-ssr.ch/m/rsc_de/mp3_128 y /m/rsj/mp3_128: redirigen a http, la app no las admite.
+#  - live.wostreaming.net/direct/ppm-jazz24mp3-ibc1 (Jazz24 MP3): el dominio ya no existe.
+#  - ice.somafm.com/<canal> sin "-128-mp3": SomaFM responde 404.

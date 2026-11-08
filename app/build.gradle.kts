@@ -18,6 +18,9 @@ android {
         targetSdk = 35
         versionCode = buildNumber ?: 1
         versionName = "0.1.${buildNumber ?: 0}"
+
+        // Prueba que reproduce cada emisora en un emulador (ver tools/streams).
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -78,4 +81,8 @@ dependencies {
     // Media3: ExoPlayer + MediaSession (notificación y controles en segundo plano)
     implementation(libs.androidx.media3.exoplayer)
     implementation(libs.androidx.media3.session)
+
+    // Prueba de reproducción de las emisoras en Android
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.runner)
 }
