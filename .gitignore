@@ -9,3 +9,4 @@
 .externalNativeBuild/
 .cxx/
 /.kotlin/
+/app/src/androidTest/assets/candidates.txt

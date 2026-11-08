@@ -1,0 +1,42 @@
+# Emisoras candidatas para reponer las que fallen, una por línea: id|Nombre|URL
+# La sonda las prueba junto al catálogo; las que funcionan en todas las rondas
+# pasan también a la prueba de reproducción en Android.
+
+# SomaFM con servidor y formato explícitos (por si la dirección corta redirige mal)
+groovesalad_ice2|Groove Salad (ice2)|https://ice2.somafm.com/groovesalad-128-mp3
+fluid_ice2|Fluid (ice2)|https://ice2.somafm.com/fluid-128-mp3
+lush_ice2|Lush (ice2)|https://ice2.somafm.com/lush-128-mp3
+synphaera_ice2|Synphaera (ice2)|https://ice2.somafm.com/synphaera-128-mp3
+deepspaceone_ice2|Deep Space One (ice2)|https://ice2.somafm.com/deepspaceone-128-mp3
+dronezone_ice2|Drone Zone (ice2)|https://ice2.somafm.com/dronezone-128-mp3
+
+# Lo-fi y chill
+lofi_lautfm|Lofi (laut.fm)|https://stream.laut.fm/lofi
+chillhop_fluxfm|Chillhop (FluxFM)|https://streams.fluxfm.de/Chillhop/mp3-128/streams.fluxfm.de/
+chillsynth|Chillsynth (Nightride FM)|https://stream.nightride.fm/chillsynth.mp3
+gsclassic|Groove Salad Classic (SomaFM)|https://ice.somafm.com/gsclassic
+
+# Ambient y para dormir
+asp_alta|Ambient Sleeping Pill (alta calidad)|https://radio.stereoscenic.com/asp-h
+n5md|n5MD Radio (SomaFM)|https://ice.somafm.com/n5md
+spacestation|Space Station Soma (SomaFM)|https://ice.somafm.com/spacestation
+rp_serenity|Radio Paradise Serenity|https://stream.radioparadise.com/serenity
+radioart_nature|Radio Art Nature|https://live.radioart.com/fNature.mp3
+radioart_sleep|Radio Art Sleep|https://live.radioart.com/fSleep.mp3
+
+# Mezclas tranquilas
+rp_mellow_128|Radio Paradise Mellow (AAC)|https://stream.radioparadise.com/mellow-128
+rp_mellow_192|Radio Paradise Mellow (MP3)|https://stream.radioparadise.com/mellow-192
+
+# Clásica
+swiss_classic|Radio Swiss Classic|https://stream.srg-ssr.ch/m/rsc_de/mp3_128
+swiss_classic_b|Radio Swiss Classic (b)|https://stream.srg-ssr.ch/srgssr/rsc_de/mp3/128
+br_klassik|BR-Klassik|https://dispatcher.rndfnk.com/br/brklassik/live/mp3/mid
+venice_classic|Venice Classic Radio|https://uk2.streamingpulse.com/ssl/vcr1
+klassik_radio|Klassik Radio|https://stream.klassikradio.de/live/mp3-192/stream.klassikradio.de/
+
+# Jazz
+swiss_jazz|Radio Swiss Jazz|https://stream.srg-ssr.ch/m/rsj/mp3_128
+swiss_jazz_b|Radio Swiss Jazz (b)|https://stream.srg-ssr.ch/srgssr/rsj/mp3/128
+jazz24_mp3|Jazz24 (MP3)|https://live.wostreaming.net/direct/ppm-jazz24mp3-ibc1
+tsf_jazz|TSF Jazz|https://tsfjazz.ice.infomaniak.ch/tsfjazz-high.mp3
