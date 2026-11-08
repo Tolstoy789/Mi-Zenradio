@@ -21,6 +21,11 @@ on:
       - tools/streams/**
       - .github/workflows/streams.yml
 
+# Una sola comprobación a la vez por rama: un cambio nuevo cancela la anterior.
+concurrency:
+  group: emisoras-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   sonda:
     name: Sonda de red
